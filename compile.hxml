@@ -20,21 +20,22 @@
 -dce full
 
 # RM Version for Conditional Compilation
--D compileMV
+
 
 # Note you can call an hxml file inside an hxml file for build purposes.
 # For Compiling Separate JavaScript Files
 
+--macro macros.MacroTools.includeJsLib("./src/LunaMonsterBoxParams.js")
 --each
 
 --next
--js dist/TestPlugin.js
-# You can include plugin parameters as a macro in your compile.hxml
---macro macros.MacroTools.includeJsLib("./src/TestPluginParams.js")
--main TestPlugin
+-js dist/Luna_MonsterBox.js
+-main LunaMonsterBox
 
 # You can also include other compiler .hxmls in your main compilation
 --next
-LunaSurveyor.hxml
+-D compileMV
+-js dist/Luna_MonsterBoxMV.js
+-main LunaMonsterBox
 
 --cmd haxe -D gamePath=games/KinoCreates --run CleanJs
